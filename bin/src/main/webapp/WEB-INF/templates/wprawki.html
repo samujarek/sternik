@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+  <header />
+
+  <h1>Strona główna, Witamy w klaserze</h1>
+  <h3 th:text="${msg}"> domyslne cos</h3>
+  <h3 th:text="${{data}}"> domyslne cos2</h3>
+  <h3 th:text="#{msg.zparam(${id})}"> domyslne cos</h3>
+  <h3 th:text="#{bbb}"> aaa </h3>
+  <h3 th:text="${moneta.opis}"> cosik o monecie</h3>
+  <footer />
+
+</body>
+
+</html>
