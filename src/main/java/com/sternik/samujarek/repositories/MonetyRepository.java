@@ -1,8 +1,8 @@
-package com.sternik.samujarek.entities.repositories;
+package com.sternik.samujarek.repositories;
 
 import java.util.List;
 
-import com.sternik.samujarek.entities.entities.Bus;
+import com.sternik.samujarek.entities.Bus;
 
 
 public interface MonetyRepository {

@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.web.conversion;
+package com.sternik.samujarek.web.conversion;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

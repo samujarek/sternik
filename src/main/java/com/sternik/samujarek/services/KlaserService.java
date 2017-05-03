@@ -1,9 +1,9 @@
-package com.sternik.samujarek.entities.services;
+package com.sternik.samujarek.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.sternik.samujarek.entities.entities.Bus;
+import com.sternik.samujarek.entities.Bus;
 
 
 public interface KlaserService {

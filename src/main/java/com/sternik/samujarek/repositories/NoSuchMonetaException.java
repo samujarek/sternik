@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.repositories;
+package com.sternik.samujarek.repositories;
 
 public class NoSuchMonetaException extends Exception {
     private static final long serialVersionUID = -8555511053844242536L;

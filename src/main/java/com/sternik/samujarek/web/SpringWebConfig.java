@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.web;
+package com.sternik.samujarek.web;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +17,7 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import com.sternik.samujarek.entities.web.conversion.DateFormatter;
+import com.sternik.samujarek.web.conversion.DateFormatter;
 
 @Configuration
 @EnableWebMvc

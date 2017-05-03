@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.repositories;
+package com.sternik.samujarek.repositories;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.sternik.samujarek.entities.entities.Bus;
-import com.sternik.samujarek.entities.entities.Status;
+import com.sternik.samujarek.entities.Bus;
+import com.sternik.samujarek.entities.Status;
 
 
 @Service

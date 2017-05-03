@@ -5,7 +5,7 @@ import javax.servlet.Filter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.sternik.samujarek.entities.web.SpringWebConfig;
+import com.sternik.samujarek.web.SpringWebConfig;
 
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "sternik-week",
+  "name": "samujarek",
   "description": "new app on heroku.",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]

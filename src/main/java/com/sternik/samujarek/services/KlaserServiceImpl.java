@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.services;
+package com.sternik.samujarek.services;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.sternik.samujarek.entities.entities.Bus;
-import com.sternik.samujarek.entities.repositories.MonetaAlreadyExistsException;
-import com.sternik.samujarek.entities.repositories.MonetyRepository;
-import com.sternik.samujarek.entities.repositories.NoSuchMonetaException;
+import com.sternik.samujarek.entities.Bus;
+import com.sternik.samujarek.repositories.MonetaAlreadyExistsException;
+import com.sternik.samujarek.repositories.MonetyRepository;
+import com.sternik.samujarek.repositories.NoSuchMonetaException;
 
 
 @Service

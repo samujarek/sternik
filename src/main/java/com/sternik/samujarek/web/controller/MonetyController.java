@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.web.controller;
+package com.sternik.samujarek.web.controller;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sternik.samujarek.entities.entities.Bus;
-import com.sternik.samujarek.entities.entities.Status;
-import com.sternik.samujarek.entities.services.KlaserService;
-import com.sternik.samujarek.entities.services.NotificationService;
+import com.sternik.samujarek.entities.Bus;
+import com.sternik.samujarek.entities.Status;
+import com.sternik.samujarek.services.KlaserService;
+import com.sternik.samujarek.services.NotificationService;
 
 @Controller
 public class MonetyController {

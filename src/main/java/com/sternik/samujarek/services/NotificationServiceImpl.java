@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.services;
+package com.sternik.samujarek.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

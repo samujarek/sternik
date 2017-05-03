@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.entities;
+package com.sternik.samujarek.entities;
 
 
 public enum Status {

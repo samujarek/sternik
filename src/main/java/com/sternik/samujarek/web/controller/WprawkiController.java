@@ -1,4 +1,4 @@
-package com.sternik.samujarek.entities.web.controller;
+package com.sternik.samujarek.web.controller;
 
 import java.util.Date;
 
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sternik.samujarek.entities.entities.Bus;
-import com.sternik.samujarek.entities.entities.Status;
-import com.sternik.samujarek.entities.repositories.MonetaAlreadyExistsException;
-import com.sternik.samujarek.entities.repositories.MonetyRepository;
-import com.sternik.samujarek.entities.repositories.NoSuchMonetaException;
+import com.sternik.samujarek.entities.Bus;
+import com.sternik.samujarek.entities.Status;
+import com.sternik.samujarek.repositories.MonetaAlreadyExistsException;
+import com.sternik.samujarek.repositories.MonetyRepository;
+import com.sternik.samujarek.repositories.NoSuchMonetaException;
 
 @Controller
 public class WprawkiController {
