@@ -1,3 +1,3 @@
-# sternik-week
+# Sternik
 
-## Aplikacja skoleniowa grupa weekendowa
+## An 'app' for buses depot management.
