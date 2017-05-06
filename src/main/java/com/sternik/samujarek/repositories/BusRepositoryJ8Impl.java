@@ -17,15 +17,15 @@ import com.sternik.samujarek.entities.Status;
 public class BusRepositoryJ8Impl implements BusRepository {
     private List<Bus> monety = new ArrayList<Bus>() {
         {
-            add(Bus.produceBus(1L, "Polska", 1L, "zł", "Ładna nowiutka złotóweczka", new Date(), new BigDecimal("1.2"),
-                    Status.NOWA));
+            add(Bus.produceBus(1L, "Brought from Croatia.", 108L, "260.04", "Ikarus", new Date(), new BigDecimal("298799.99"),
+                    Status.GASOLINE));
             add(Bus.produceBus(2L, "Polska", 1L, "zł", "First Moneta", new Date(), new BigDecimal("1.2"),
-                    Status.DO_SPRZEDANIA));
-            add(Bus.produceBus(3L, "Polska", 1L, "zł", "Second Moneta", new Date(), new BigDecimal("1.2"), Status.DUBLET));
+                    Status.DIESEL));
+            add(Bus.produceBus(3L, "Polska", 1L, "zł", "Second Moneta", new Date(), new BigDecimal("1.2"), Status.GAS));
             add(Bus.produceBus(4L, "Polska", 1L, "zł", "Forth Moneta", new Date(), new BigDecimal("1.2"),
-                    Status.DO_SPRZEDANIA));
-            add(Bus.produceBus(5L, "Polska", 1L, "zł", "Moneta Number 5", new Date(), new BigDecimal("1.2"), Status.NOWA));
-            add(Bus.produceBus(6L, "Polska", 1L, "zł", "Sixth Moneta", new Date(), new BigDecimal("1.2"), Status.NOWA));
+                    Status.DIESEL));
+            add(Bus.produceBus(5L, "Polska", 1L, "zł", "Moneta Number 5", new Date(), new BigDecimal("1.2"), Status.GASOLINE));
+            add(Bus.produceBus(6L, "Polska", 1L, "zł", "Sixth Moneta", new Date(), new BigDecimal("1.2"), Status.GASOLINE));
         }
     };
 

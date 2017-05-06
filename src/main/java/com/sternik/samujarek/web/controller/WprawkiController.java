@@ -69,7 +69,7 @@ public class WprawkiController {
             m = new Bus();
             m.setNumerKatalogowy(id);
             m.setKrajPochodzenia("Polska");
-            m.setStatus(Status.NOWA);
+            m.setStatus(Status.GASOLINE);
             m.setNominal(10L);
             try {
                 baza.create(m);

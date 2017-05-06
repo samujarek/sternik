@@ -80,7 +80,7 @@ public class DepotServiceJ8Impl implements DepotService {
 
     @Override
     public List<Bus> findAllToSell() {
-        return monety.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DO_SPRZEDANIA))
+        return monety.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DIESEL))
                 .collect(Collectors.toList());
     }
 }

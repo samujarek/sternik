@@ -26,7 +26,7 @@ public class SimpleDatabase implements BusRepository {
         m.setOpis("Ładna nowiutka złotóweczka");
         m.setDataNabycia(new Date());
         m.setCenaNabycia(new BigDecimal("1.2"));
-        m.setStatus(Status.NOWA);
+        m.setStatus(Status.GASOLINE);
         baza[0] = m;
         m = new Bus();
         m.setNumerKatalogowy(2L);
@@ -36,7 +36,7 @@ public class SimpleDatabase implements BusRepository {
         m.setOpis("Ładna nowiutka dwu złotóweczka");
         m.setDataNabycia(new Date());
         m.setCenaNabycia(new BigDecimal("2.2"));
-        m.setStatus(Status.DO_SPRZEDANIA);
+        m.setStatus(Status.DIESEL);
         baza[2] = m;
     }
 

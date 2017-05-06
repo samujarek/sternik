@@ -27,7 +27,7 @@ public class Bus {
 	private BigDecimal vehiclePrice;
 	
 //	@NotNull
-	private Date productionDate;
+	private Date purchaseDate;
 	
 //	@NotEmpty
 	private String vehicleHistory;
@@ -44,7 +44,7 @@ public class Bus {
 		bus.brandBus = brandBus;
 		bus.brandVersionBus = brandVersionBus;
 		bus.vehiclePrice = vehiclePrice;
-		bus.productionDate = productionDate;
+		bus.purchaseDate = productionDate;
 		bus.status = status;
 		return bus;
 	}
@@ -70,7 +70,7 @@ public class Bus {
 	}
 
 	public Date getDataNabycia() {
-		return productionDate;
+		return purchaseDate;
 	}
 
 	public String getKrajPochodzenia() {
@@ -102,7 +102,7 @@ public class Bus {
 	}
 
 	public void setDataNabycia(Date dataNabycia) {
-		this.productionDate = dataNabycia;
+		this.purchaseDate = dataNabycia;
 	}
 
 	public void setKrajPochodzenia(String krajPochodzenia) {
@@ -119,7 +119,7 @@ public class Bus {
 		int result = 1;
 		result = prime * result + ((brandBus == null) ? 0 : brandBus.hashCode());
 		result = prime * result + ((vehiclePrice == null) ? 0 : vehiclePrice.hashCode());
-		result = prime * result + ((productionDate == null) ? 0 : productionDate.hashCode());
+		result = prime * result + ((purchaseDate == null) ? 0 : purchaseDate.hashCode());
 		result = prime * result + ((vehicleHistory == null) ? 0 : vehicleHistory.hashCode());
 		result = prime * result + ((passengersCapacity == null) ? 0 : passengersCapacity.hashCode());
 		result = prime * result + ((idBus == null) ? 0 : idBus.hashCode());
@@ -149,10 +149,10 @@ public class Bus {
 				return false;
 		} else if (!vehiclePrice.equals(other.vehiclePrice))
 			return false;
-		if (productionDate == null) {
-			if (other.productionDate != null)
+		if (purchaseDate == null) {
+			if (other.purchaseDate != null)
 				return false;
-		} else if (!productionDate.equals(other.productionDate))
+		} else if (!purchaseDate.equals(other.purchaseDate))
 			return false;
 		if (vehicleHistory == null) {
 			if (other.vehicleHistory != null)
@@ -186,7 +186,7 @@ public class Bus {
 	public String toString() {
 		return "Bus [Bus ID = " + idBus + ", Passangers capacity = " + passengersCapacity + ", Bus brand = " 
 				+ brandBus + ", Bus brand version = " + brandVersionBus + ", Vehicle price = " + vehiclePrice
-				+ ", Production date = " + productionDate + ", Vehicle history = " + vehicleHistory 
+				+ ", Production date = " + purchaseDate + ", Vehicle history = " + vehicleHistory 
 				+ ", Status=" + status + "]";
 	}
 }
