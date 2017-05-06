@@ -12,52 +12,52 @@
 	    <form action="#" th:action="@{/buses}" th:object="${bus}" method="post">
 	      <fieldset>
 	
-	        <legend th:text="#{klaser.moneta.dane}">Starter Data</legend>
+	        <legend th:text="#{depot.moneta.dane}">Starter Data</legend>
 	        <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
 	          <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
 	        </ul>
 	        
 	        <div>
-	          <label for="numerKatalogowy"> <span th:text="#{klaser.numerKatalogowy}">numer</span>
+	          <label for="numerKatalogowy"> <span th:text="#{depot.numerKatalogowy}">numer</span>
 	          </label> <input type="text" th:field="*{numerKatalogowy}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="nominal"> <span th:text="#{klaser.nominal}">nominal</span>
+	          <label for="nominal"> <span th:text="#{depot.nominal}">nominal</span>
 	          </label> <input type="text" th:field="*{nominal}" th:errorclass="fieldError" />
 	          <span th:if="${#fields.hasErrors('nominal')}" th:errors="*{nominal}">Incorrect nominal</span>
 	        </div>
 	        
 	        <div>
-	          <label for="opis"> <span th:text="#{klaser.opis}">opis</span>
+	          <label for="opis"> <span th:text="#{depot.opis}">opis</span>
 	          </label> <input type="text" th:field="*{opis}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="waluta"> <span th:text="#{klaser.waluta}">waluta</span>
+	          <label for="waluta"> <span th:text="#{depot.waluta}">waluta</span>
 	          </label> <input type="text" th:field="*{waluta}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="cenaNabycia"> <span th:text="#{klaser.cenaNabycia}">cenaNabycia</span>
+	          <label for="cenaNabycia"> <span th:text="#{depot.cenaNabycia}">cenaNabycia</span>
 	          </label> <input type="text" th:field="*{cenaNabycia}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="dataNabycia"> <span th:text="#{klaser.dataNabycia}">Date kup</span> (<span
+	          <label for="dataNabycia"> <span th:text="#{depot.dataNabycia}">Date kup</span> (<span
 	            th:text="#{date.format}">YYYY/MM/DD</span>)
 	          </label> <input type="text" th:field="*{dataNabycia}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="krajPochodzenia"> <span th:text="#{klaser.krajPochodzenia}">krajPochodzenia</span>
+	          <label for="krajPochodzenia"> <span th:text="#{depot.krajPochodzenia}">krajPochodzenia</span>
 	          </label> <input type="text" th:field="*{krajPochodzenia}" th:errorclass="fieldError" />
 	        </div>
 	        
 	        <div>
-	          <label for="status"> <span th:text="#{klaser.status}">status</span></label>
+	          <label for="status"> <span th:text="#{depot.status}">status</span></label>
 	            <select th:field="*{status}" th:errorclass="fieldError">
-	              <option th:each="st : ${statusyAll}" th:value="${st}" th:text="#{${'klaser.status.' + st}}">Nowa</option>
+	              <option th:each="st : ${statusyAll}" th:value="${st}" th:text="#{${'depot.status.' + st}}">Nowa</option>
 	            </select>          
 	        </div>
 	        
