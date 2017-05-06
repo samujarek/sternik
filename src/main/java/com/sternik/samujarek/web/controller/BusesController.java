@@ -40,7 +40,7 @@ public class BusesController {
         return Arrays.asList(Status.ALL);
     }
 
-    @RequestMapping(value = "/buses/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/monety/{id}", method = RequestMethod.GET)
     public String view(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Bus> result;
         result = depotService.findById(id);
