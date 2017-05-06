@@ -16,7 +16,6 @@ import com.sternik.samujarek.repositories.BusAlreadyExistsException;
 import com.sternik.samujarek.repositories.BusRepository;
 import com.sternik.samujarek.repositories.NoSuchBusException;
 
-
 @Service
 @Primary
 public class DepotServiceJ8Impl implements DepotService {
