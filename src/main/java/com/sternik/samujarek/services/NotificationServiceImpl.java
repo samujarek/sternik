@@ -27,7 +27,8 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public List<NotificationMessage> getNotificationMessages() {
-        List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
+        @SuppressWarnings("unchecked")
+		List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
         httpSession.setAttribute(NOTIFY_MSG_SESSION_KEY, new ArrayList<NotificationMessage>());
         return notifyMessages;
     }
@@ -35,16 +36,15 @@ public class NotificationServiceImpl implements NotificationService {
     
     
     private void addNotificationMessage(NotificationMessageType type, String msg) {
-        List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
+        @SuppressWarnings("unchecked")
+		List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
         notifyMessages = new ArrayList<NotificationMessage>();
-        if (notifyMessages == null) {
-        }
+//        if (notifyMessages == null)
+        	
         notifyMessages.add(new NotificationMessage(type, msg));
         httpSession.setAttribute(NOTIFY_MSG_SESSION_KEY, notifyMessages);
     }
     
-    
-
     public enum NotificationMessageType {
         INFO, ERROR
     }

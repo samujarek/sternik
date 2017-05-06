@@ -21,7 +21,7 @@ import com.sternik.samujarek.web.conversion.DateFormatter;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "pl.sternik.kk.week.web" })
+@ComponentScan({ "com.sternik.samujarek.web" })
 public class SpringWebConfig
         extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 

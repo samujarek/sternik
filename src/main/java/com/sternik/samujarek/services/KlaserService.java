@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.sternik.samujarek.entities.Bus;
 
-
 public interface KlaserService {
     List<Bus> findAll();
 

@@ -1,23 +1,16 @@
 package com.sternik.samujarek;
 
-import javax.servlet.Filter;
-
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.sternik.samujarek.web.SpringWebConfig;
-
-
 
 public class SpringWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     public static final String CHARACTER_ENCODING = "UTF-8";
 
-
     public SpringWebApplicationInitializer() {
         super();
     }
-
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
@@ -33,13 +26,4 @@ public class SpringWebApplicationInitializer extends AbstractAnnotationConfigDis
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
-
-/*    @Override
-    protected Filter[] getServletFilters() {
-        final CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
-        encodingFilter.setEncoding(CHARACTER_ENCODING);
-        encodingFilter.setForceEncoding(false);
-        return new Filter[] { encodingFilter };
-    }*/
-
 }
