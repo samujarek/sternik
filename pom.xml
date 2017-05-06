@@ -28,7 +28,7 @@
 
 
 	<build>
-		<finalName>sternik-week</finalName>
+		<finalName>samujarek</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
