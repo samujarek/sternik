@@ -22,23 +22,23 @@ public class DepotServiceJ8Impl implements DepotService {
 
     @Autowired
     @Qualifier("lista")
-    private BusRepository monety;
+    private BusRepository buses;
 
     @Override
     public List<Bus> findAll() {
-        return monety.findAll();
+        return buses.findAll();
     }
 
     @Override
     public List<Bus> findLatest3() {
-        return monety.findAll().stream().sorted((a, b) -> b.getDataNabycia().compareTo(a.getDataNabycia())).limit(5)
+        return buses.findAll().stream().sorted((a, b) -> b.getDataNabycia().compareTo(a.getDataNabycia())).limit(5)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Optional<Bus> findById(Long id) {
         try {
-            return Optional.of(monety.readById(id));
+            return Optional.of(buses.readById(id));
         } catch (NoSuchBusException e) {
             return Optional.empty();
         }
@@ -47,10 +47,10 @@ public class DepotServiceJ8Impl implements DepotService {
     @Override
     public Optional<Bus> create(Bus bus) {
         try {
-            return Optional.of(monety.create(bus));
+            return Optional.of(buses.create(bus));
         } catch (BusAlreadyExistsException e) {
             try {
-                return Optional.of(monety.readById(bus.getNumerKatalogowy()));
+                return Optional.of(buses.readById(bus.getNumerKatalogowy()));
             } catch (NoSuchBusException e1) {
                 return Optional.empty();
             }
@@ -61,7 +61,7 @@ public class DepotServiceJ8Impl implements DepotService {
     @Override
     public Optional<Bus> edit(Bus bus) {
         try {
-            return Optional.of(monety.update(bus));
+            return Optional.of(buses.update(bus));
         } catch (NoSuchBusException e) {
             return Optional.empty();
         }
@@ -70,7 +70,7 @@ public class DepotServiceJ8Impl implements DepotService {
     @Override
     public Optional<Boolean> deleteById(Long id) {
         try {
-            monety.deleteById(id);
+            buses.deleteById(id);
             return Optional.of(Boolean.TRUE);
         } catch (NoSuchBusException e) {
             return Optional.of(Boolean.FALSE);
@@ -79,7 +79,7 @@ public class DepotServiceJ8Impl implements DepotService {
 
     @Override
     public List<Bus> findAllToSell() {
-        return monety.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DIESEL))
+        return buses.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DIESEL))
                 .collect(Collectors.toList());
     }
 }

@@ -15,7 +15,7 @@ import com.sternik.samujarek.entities.Status;
 @Service
 @Qualifier("lista")
 public class BusRepositoryJ8Impl implements BusRepository {
-    private List<Bus> monety = new ArrayList<Bus>() {
+    private List<Bus> buses = new ArrayList<Bus>() {
         {
             add(Bus.produceBus(1L, "Brought from Croatia.", 108L, "260.04", "Ikarus", new Date(), new BigDecimal("298799.99"),
                     Status.GASOLINE));
@@ -31,45 +31,45 @@ public class BusRepositoryJ8Impl implements BusRepository {
 
     @Override
     public List<Bus> findAll() {
-        return this.monety;
+        return this.buses;
     }
 
     @Override
     public Bus readById(Long id) throws NoSuchBusException {
-        return this.monety.stream().filter(p -> Objects.equals(p.getNumerKatalogowy(), id)).findFirst()
+        return this.buses.stream().filter(p -> Objects.equals(p.getNumerKatalogowy(), id)).findFirst()
                 .orElseThrow(NoSuchBusException::new);
     }
 
     @Override
     public Bus create(Bus bus) {
-        if (!monety.isEmpty()) {
+        if (!buses.isEmpty()) {
             bus.setNumerKatalogowy(
-                    this.monety.stream().mapToLong(p -> p.getNumerKatalogowy()).max().getAsLong() + 1);
+                    this.buses.stream().mapToLong(p -> p.getNumerKatalogowy()).max().getAsLong() + 1);
         } else {
             bus.setNumerKatalogowy(1L);
         }
-        this.monety.add(bus);
+        this.buses.add(bus);
         return bus;
     }
 
     @Override
     public Bus update(Bus bus) throws NoSuchBusException {
-        for (int i = 0; i < this.monety.size(); i++) {
-            if (Objects.equals(this.monety.get(i).getNumerKatalogowy(), bus.getNumerKatalogowy())) {
-                this.monety.set(i, bus);
+        for (int i = 0; i < this.buses.size(); i++) {
+            if (Objects.equals(this.buses.get(i).getNumerKatalogowy(), bus.getNumerKatalogowy())) {
+                this.buses.set(i, bus);
                 return bus;
             }
         }
-        throw new NoSuchBusException("Nie ma takiej Monety: " + bus.getNumerKatalogowy());
+        throw new NoSuchBusException("Nie ma takiej buses: " + bus.getNumerKatalogowy());
     }
 
     @Override
     public void deleteById(Long id) throws NoSuchBusException {
-        for (int i = 0; i < this.monety.size(); i++) {
-            if (Objects.equals(this.monety.get(i).getNumerKatalogowy(), id)) {
-                this.monety.remove(i);
+        for (int i = 0; i < this.buses.size(); i++) {
+            if (Objects.equals(this.buses.get(i).getNumerKatalogowy(), id)) {
+                this.buses.remove(i);
             }
         }
-        throw new NoSuchBusException("Nie ma takiej Monety: " + id);
+        throw new NoSuchBusException("Nie ma takiej buses: " + id);
     }
 }
