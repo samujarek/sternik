@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layout ::site-head">
-<title>Klaser monet</title>
+<title>Buses depot</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" media="all" href="../../css/depot.css" th:href="@{/css/depot.css}" />
 </head>
@@ -11,7 +11,7 @@
 <body>
   <header th:replace="layout :: site-header" />
   <div>
-    <h2 th:text="#{title.list}" style="display: inline;">Lista monet</h2>
+    <h2 th:text="#{title.list}" style="display: inline;">Buses list</h2>
   </div>
   
   <div class="listaMonet" th:unless="${#lists.isEmpty(coinsAll)}">
@@ -41,7 +41,7 @@
           <td th:text="${coin.krajPochodzenia}">Polska</td>
           <td th:text="#{${'klaser.status.' + coin.status}}">Nowa</td>
           <td>
-            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Dell</button>
+            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Delete</button>
             
             <a href="moneta.html" th:href="@{|/monety/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
           </td>
