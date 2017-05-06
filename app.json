@@ -1,6 +1,6 @@
 {
   "name": "samujarek",
-  "description": "new app on heroku.",
+  "description": "My first CRUD Heroku app.",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]
 }
