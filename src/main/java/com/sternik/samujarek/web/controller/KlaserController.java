@@ -57,7 +57,7 @@ public class KlaserController {
         return "index";
     }
 
-    @RequestMapping(value = "/monety", method = RequestMethod.GET)
+    @RequestMapping(value = "/buses", method = RequestMethod.GET)
     public String showMainPage(Model model) {
         model.addAttribute("MyMessages",  notificationService.getNotificationMessages());
         return "klaser";
