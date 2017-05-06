@@ -12,7 +12,7 @@
 	    <a href="index.html" th:href="@{/}"><img src="../../images/ikarus.jpg" th:src="@{/images/ikarus.jpg}"/> </a> 
 	    <a href="klaser.html" th:href="@{/monety}">All buses</a>
 	    <a href="tosell.html" th:href="@{/tosell}">Buses to sell</a>
-	    <a href="moneta.html" th:href="@{/monety/create}">Add bus to depot</a>
+	    <a href="bus.html" th:href="@{/monety/create}">Add bus to depot</a>
  
 	    <ul id="messages">
 	      <li th:each="msg : ${MyMessages}" th:text="${msg.text}"
@@ -23,7 +23,7 @@
 	
 	  <div>
 	    <h2 th:text="#{title.list}" style="display: inline;">Buses depot</h2>    
-	    <img src="../../images/ikarus.jpg" alt="Klaser logo" title="Bus logo" th:src="@{/images/ikarus.jpg}"
+	    <img src="../../images/ikarus.jpg" alt="Depot logo" title="Bus logo" th:src="@{/images/ikarus.jpg}"
 	      th:alt-title="#{title.application}" style="float: right;" /> 
 	    <p> "" </p>
 	  </div>

@@ -31,7 +31,7 @@
       </thead>
       <tbody>
         <tr th:each="coin : ${coinsAll}">
-          <form action="#" th:action="@{/monety}" th:object="${coin}" method="post">
+          <form action="#" th:action="@{/monety}" th:object="${bus}" method="post">
           <td th:text="${coin.numerKatalogowy}">1</td>
           <td th:text="${coin.nominal}">100</td>
           <td th:text="${coin.opis}">Długi opis</td>
@@ -43,7 +43,7 @@
           <td>
             <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Delete</button>
             
-            <a href="moneta.html" th:href="@{|/monety/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
+            <a href="bus.html" th:href="@{|/monety/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
           </td>
           </form>
         </tr>
