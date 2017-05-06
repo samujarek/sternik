@@ -60,7 +60,7 @@ public class DepotController {
 	@RequestMapping(value = "/buses", method = RequestMethod.GET)
 	public String showMainPage(Model model) {
 		model.addAttribute("MyMessages", notificationService.getNotificationMessages());
-		return "klaser";
+		return "depot";
 	}
 
 	@RequestMapping("/tosell")

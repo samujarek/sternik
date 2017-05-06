@@ -40,22 +40,22 @@ public class BusesController {
         return Arrays.asList(Status.ALL);
     }
 
-    @RequestMapping(value = "/monety/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/buses/{id}", method = RequestMethod.GET)
     public String view(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Bus> result;
         result = depotService.findById(id);
         if (result.isPresent()) {
             Bus bus = result.get();
-            model.addAttribute("moneta", bus);
-            return "moneta";
+            model.addAttribute("bus", bus);
+            return "bus";
         } else {
-            notifyService.addErrorMessage("Cannot find moneta #" + id);
+            notifyService.addErrorMessage("Cannot find bus #" + id);
             model.clear();
-            return "redirect:/monety";
+            return "redirect:/buses";
         }
     }
 
-    @RequestMapping(value = "/monety/{id}/json", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/buses/{id}/json", produces = "application/json", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Bus> viewAsJson(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Bus> result;
@@ -64,18 +64,18 @@ public class BusesController {
             Bus bus = result.get();
             return new ResponseEntity<Bus>(bus, HttpStatus.OK);
         } else {
-            notifyService.addErrorMessage("Cannot find moneta #" + id);
+            notifyService.addErrorMessage("Cannot find bus #" + id);
             model.clear();
             return new ResponseEntity<Bus>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @RequestMapping(value = "/monety", params = { "save" }, method = RequestMethod.POST)
-    public String saveMoneta(Bus bus, BindingResult bindingResult, ModelMap model) {
+    @RequestMapping(value = "/buses", params = { "save" }, method = RequestMethod.POST)
+    public String savebus(Bus bus, BindingResult bindingResult, ModelMap model) {
 
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
-            return "moneta";
+            return "bus";
         }
         Optional<Bus> result = depotService.edit(bus);
         if (result.isPresent())
@@ -83,32 +83,32 @@ public class BusesController {
         else
             notifyService.addErrorMessage("Zapis NIE udany");
         model.clear();
-        return "redirect:/monety";
+        return "redirect:/buses";
     }
 
-    @RequestMapping(value = "/monety", params = { "create" }, method = RequestMethod.POST)
-    public String createMoneta(Bus bus, BindingResult bindingResult, ModelMap model) {
+    @RequestMapping(value = "/buses", params = { "create" }, method = RequestMethod.POST)
+    public String createbus(Bus bus, BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
-            return "moneta";
+            return "bus";
         }
         depotService.create(bus);
         model.clear();
         notifyService.addInfoMessage("Zapis nowej udany");
-        return "redirect:/monety";
+        return "redirect:/buses";
     }
 
-    @RequestMapping(value = "/monety", params = { "remove" }, method = RequestMethod.POST)
+    @RequestMapping(value = "/buses", params = { "remove" }, method = RequestMethod.POST)
     public String removeRow(final Bus bus, final BindingResult bindingResult, final HttpServletRequest req) {
         final Integer rowId = Integer.valueOf(req.getParameter("remove"));
         Optional<Boolean> result = depotService.deleteById(rowId.longValue());
-        return "redirect:/monety";
+        return "redirect:/buses";
     }
 
-    @RequestMapping(value = "/monety/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/buses/create", method = RequestMethod.GET)
     public String showMainPages(final Bus bus) {
-        // Ustawiamy date nowej monety, na dole strony do dodania
+        // Ustawiamy date nowej buses, na dole strony do dodania
         bus.setDataNabycia(Calendar.getInstance().getTime());
-        return "moneta";
+        return "bus";
     }
 }
