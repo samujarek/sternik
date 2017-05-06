@@ -25,46 +25,46 @@ import com.sternik.samujarek.services.NotificationService;
 @Controller
 public class KlaserController {
 
-    @Autowired
-    // @Qualifier("spring")
-    private KlaserService klaserService;
+	@Autowired
+	// @Qualifier("spring")
+	private KlaserService klaserService;
 
-    @Autowired
-    private NotificationService notificationService;
+	@Autowired
+	private NotificationService notificationService;
 
-    @ModelAttribute("statusyAll")
-    public List<Status> populateStatusy() {
-        return Arrays.asList(Status.ALL);
-    }
+	@ModelAttribute("statusyAll")
+	public List<Status> populateStatusy() {
+		return Arrays.asList(Status.ALL);
+	}
 
-    @ModelAttribute("coinsAll")
-    public List<Bus> populateCoins() {
-        return this.klaserService.findAll();
-    }
+	@ModelAttribute("coinsAll")
+	public List<Bus> populateCoins() {
+		return this.klaserService.findAll();
+	}
 
-    @ModelAttribute("coinsToSell")
-    public List<Bus> populateCoinsToSell() {
-        return this.klaserService.findAllToSell();
-    }
+	@ModelAttribute("coinsToSell")
+	public List<Bus> populateCoinsToSell() {
+		return this.klaserService.findAllToSell();
+	}
 
-    @ModelAttribute("coinsLast3")
-    public List<Bus> populateLast3Coins() {
-        return this.klaserService.findLatest3();
-    }
+	@ModelAttribute("coinsLast3")
+	public List<Bus> populateLast3Coins() {
+		return this.klaserService.findLatest3();
+	}
 
-    @RequestMapping({ "/", "/index" })
-    public String index(Model model) {
-        return "index";
-    }
+	@RequestMapping({ "/", "/index" })
+	public String index(Model model) {
+		return "index";
+	}
 
-    @RequestMapping(value = "/buses", method = RequestMethod.GET)
-    public String showMainPage(Model model) {
-        model.addAttribute("MyMessages",  notificationService.getNotificationMessages());
-        return "klaser";
-    }
+	@RequestMapping(value = "/monety", method = RequestMethod.GET)
+	public String showMainPage(Model model) {
+		model.addAttribute("MyMessages", notificationService.getNotificationMessages());
+		return "klaser";
+	}
 
-    @RequestMapping("/tosell")
-    public String showToSellPage() {
-        return "tosell";
-    }
+	@RequestMapping("/tosell")
+	public String showToSellPage() {
+		return "tosell";
+	}
 }
