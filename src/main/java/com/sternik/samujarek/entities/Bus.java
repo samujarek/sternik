@@ -19,14 +19,19 @@ public class Bus {
 	//@Size(min=2, max=30, message = "{Size.moneta.opis}")
 //	@Size(min=2, max=30, message = "Opis should be in the range [{min}...{max}]")
 	private String opis;
+	
 //	@NotEmpty
 	private String waluta;
+	
 //	@NotNull
 	private BigDecimal cenaNabycia;
+	
 //	@NotNull
 	private Date dataNabycia;
+	
 //	@NotEmpty
 	private String krajPochodzenia;
+	
 //	@NotNull
 	private Status status;
 
@@ -181,5 +186,4 @@ public class Bus {
 				+ waluta + ", cenaNabycia=" + cenaNabycia + ", dataNabycia=" + dataNabycia + ", krajPochodzenia="
 				+ krajPochodzenia + ", status=" + status + "]";
 	}
-
 }

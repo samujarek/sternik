@@ -67,5 +67,4 @@ public class KlaserController {
     public String showToSellPage() {
         return "tosell";
     }
-
 }
