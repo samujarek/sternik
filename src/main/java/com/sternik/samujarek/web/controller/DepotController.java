@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sternik.samujarek.entities.Bus;
 import com.sternik.samujarek.entities.Status;
-import com.sternik.samujarek.services.KlaserService;
+import com.sternik.samujarek.services.DepotService;
 import com.sternik.samujarek.services.NotificationService;
 
 @Controller
-public class KlaserController {
+public class DepotController {
 
 	@Autowired
 	// @Qualifier("spring")
-	private KlaserService klaserService;
+	private DepotService depotService;
 
 	@Autowired
 	private NotificationService notificationService;
@@ -39,17 +39,17 @@ public class KlaserController {
 
 	@ModelAttribute("coinsAll")
 	public List<Bus> populateCoins() {
-		return this.klaserService.findAll();
+		return this.depotService.findAll();
 	}
 
 	@ModelAttribute("coinsToSell")
 	public List<Bus> populateCoinsToSell() {
-		return this.klaserService.findAllToSell();
+		return this.depotService.findAllToSell();
 	}
 
 	@ModelAttribute("coinsLast3")
 	public List<Bus> populateLast3Coins() {
-		return this.klaserService.findLatest3();
+		return this.depotService.findLatest3();
 	}
 
 	@RequestMapping({ "/", "/index" })

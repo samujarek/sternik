@@ -9,72 +9,72 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Bus {
 
-//    @NotNull
-//    @Id
-    private Long numerKatalogowy;
+//  @NotNull
+//  @Id
+    private Long idBus;
 	
 //	@NotNull
-	private Long nominal;
+//	@Size(min=2, max=30")
+	private Long passengersCapacity;
 	
-	//@Size(min=2, max=30, message = "{Size.moneta.opis}")
-//	@Size(min=2, max=30, message = "Opis should be in the range [{min}...{max}]")
-	private String opis;
+//	@Size(min=2, max=30")
+	private String brandBus;
 	
 //	@NotEmpty
-	private String waluta;
+	private String brandVersionBus;
 	
 //	@NotNull
-	private BigDecimal cenaNabycia;
+	private BigDecimal vehiclePrice;
 	
 //	@NotNull
-	private Date dataNabycia;
+	private Date productionDate;
 	
 //	@NotEmpty
-	private String krajPochodzenia;
+	private String vehicleHistory;
 	
 //	@NotNull
 	private Status status;
 
-	public static Bus produceMoneta(Long numerKatalogowy, String krajPochodzenia, Long nominal, String waluta, String opis,
-		Date dataNabycia, BigDecimal cenaNabycia, Status status) {
-		Bus m = new Bus();
-		m.numerKatalogowy = numerKatalogowy;
-		m.krajPochodzenia = krajPochodzenia;
-		m.nominal = nominal;
-		m.opis = opis;
-		m.waluta = waluta;
-		m.cenaNabycia = cenaNabycia;
-		m.dataNabycia = dataNabycia;
-		m.status = status;
-		return m;
+	public static Bus produceBus(Long idBus, String vehicleHistory, Long passengersCapacity, String brandVersionBus, String brandBus,
+		Date productionDate, BigDecimal vehiclePrice, Status status) {
+		Bus bus = new Bus();
+		bus.idBus = idBus;
+		bus.vehicleHistory = vehicleHistory;
+		bus.passengersCapacity = passengersCapacity;
+		bus.brandBus = brandBus;
+		bus.brandVersionBus = brandVersionBus;
+		bus.vehiclePrice = vehiclePrice;
+		bus.productionDate = productionDate;
+		bus.status = status;
+		return bus;
 	}
 
 	public Long getNumerKatalogowy() {
-		return numerKatalogowy;
+		return idBus;
 	}
 
 	public Long getNominal() {
-		return nominal;
+		return passengersCapacity;
 	}
 
 	public String getOpis() {
-		return opis;
+		return brandBus;
 	}
 
 	public String getWaluta() {
-		return waluta;
+		return brandVersionBus;
 	}
 
 	public BigDecimal getCenaNabycia() {
-		return cenaNabycia;
+		return vehiclePrice;
 	}
 
 	public Date getDataNabycia() {
-		return dataNabycia;
+		return productionDate;
 	}
 
 	public String getKrajPochodzenia() {
-		return krajPochodzenia;
+		return vehicleHistory;
 	}
 
 	public Status getStatus() {
@@ -82,31 +82,31 @@ public class Bus {
 	}
 
 	public void setNumerKatalogowy(Long numerKatalogowy) {
-		this.numerKatalogowy = numerKatalogowy;
+		this.idBus = numerKatalogowy;
 	}
 
 	public void setNominal(Long nominal) {
-		this.nominal = nominal;
+		this.passengersCapacity = nominal;
 	}
 
 	public void setOpis(String opis) {
-		this.opis = opis;
+		this.brandBus = opis;
 	}
 
 	public void setWaluta(String waluta) {
-		this.waluta = waluta;
+		this.brandVersionBus = waluta;
 	}
 
 	public void setCenaNabycia(BigDecimal cenaNabycia) {
-		this.cenaNabycia = cenaNabycia;
+		this.vehiclePrice = cenaNabycia;
 	}
 
 	public void setDataNabycia(Date dataNabycia) {
-		this.dataNabycia = dataNabycia;
+		this.productionDate = dataNabycia;
 	}
 
 	public void setKrajPochodzenia(String krajPochodzenia) {
-		this.krajPochodzenia = krajPochodzenia;
+		this.vehicleHistory = krajPochodzenia;
 	}
 
 	public void setStatus(Status status) {
@@ -117,14 +117,14 @@ public class Bus {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((opis == null) ? 0 : opis.hashCode());
-		result = prime * result + ((cenaNabycia == null) ? 0 : cenaNabycia.hashCode());
-		result = prime * result + ((dataNabycia == null) ? 0 : dataNabycia.hashCode());
-		result = prime * result + ((krajPochodzenia == null) ? 0 : krajPochodzenia.hashCode());
-		result = prime * result + ((nominal == null) ? 0 : nominal.hashCode());
-		result = prime * result + ((numerKatalogowy == null) ? 0 : numerKatalogowy.hashCode());
+		result = prime * result + ((brandBus == null) ? 0 : brandBus.hashCode());
+		result = prime * result + ((vehiclePrice == null) ? 0 : vehiclePrice.hashCode());
+		result = prime * result + ((productionDate == null) ? 0 : productionDate.hashCode());
+		result = prime * result + ((vehicleHistory == null) ? 0 : vehicleHistory.hashCode());
+		result = prime * result + ((passengersCapacity == null) ? 0 : passengersCapacity.hashCode());
+		result = prime * result + ((idBus == null) ? 0 : idBus.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((waluta == null) ? 0 : waluta.hashCode());
+		result = prime * result + ((brandVersionBus == null) ? 0 : brandVersionBus.hashCode());
 		return result;
 	}
 
@@ -136,54 +136,57 @@ public class Bus {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		
 		Bus other = (Bus) obj;
-		if (opis == null) {
-			if (other.opis != null)
+		
+		if (brandBus == null) {
+			if (other.brandBus != null)
 				return false;
-		} else if (!opis.equals(other.opis))
+		} else if (!brandBus.equals(other.brandBus))
 			return false;
-		if (cenaNabycia == null) {
-			if (other.cenaNabycia != null)
+		if (vehiclePrice == null) {
+			if (other.vehiclePrice != null)
 				return false;
-		} else if (!cenaNabycia.equals(other.cenaNabycia))
+		} else if (!vehiclePrice.equals(other.vehiclePrice))
 			return false;
-		if (dataNabycia == null) {
-			if (other.dataNabycia != null)
+		if (productionDate == null) {
+			if (other.productionDate != null)
 				return false;
-		} else if (!dataNabycia.equals(other.dataNabycia))
+		} else if (!productionDate.equals(other.productionDate))
 			return false;
-		if (krajPochodzenia == null) {
-			if (other.krajPochodzenia != null)
+		if (vehicleHistory == null) {
+			if (other.vehicleHistory != null)
 				return false;
-		} else if (!krajPochodzenia.equals(other.krajPochodzenia))
+		} else if (!vehicleHistory.equals(other.vehicleHistory))
 			return false;
-		if (nominal == null) {
-			if (other.nominal != null)
+		if (passengersCapacity == null) {
+			if (other.passengersCapacity != null)
 				return false;
-		} else if (!nominal.equals(other.nominal))
+		} else if (!passengersCapacity.equals(other.passengersCapacity))
 			return false;
-		if (numerKatalogowy == null) {
-			if (other.numerKatalogowy != null)
+		if (idBus == null) {
+			if (other.idBus != null)
 				return false;
-		} else if (!numerKatalogowy.equals(other.numerKatalogowy))
+		} else if (!idBus.equals(other.idBus))
 			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
 		} else if (!status.equals(other.status))
 			return false;
-		if (waluta == null) {
-			if (other.waluta != null)
+		if (brandVersionBus == null) {
+			if (other.brandVersionBus != null)
 				return false;
-		} else if (!waluta.equals(other.waluta))
+		} else if (!brandVersionBus.equals(other.brandVersionBus))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Moneta [numerKatalogowy=" + numerKatalogowy + ", nominal=" + nominal + ", Opis=" + opis + ", waluta="
-				+ waluta + ", cenaNabycia=" + cenaNabycia + ", dataNabycia=" + dataNabycia + ", krajPochodzenia="
-				+ krajPochodzenia + ", status=" + status + "]";
+		return "Bus [Bus ID = " + idBus + ", Passangers capacity = " + passengersCapacity + ", Bus brand = " 
+				+ brandBus + ", Bus brand version = " + brandVersionBus + ", Vehicle price = " + vehiclePrice
+				+ ", Production date = " + productionDate + ", Vehicle history = " + vehicleHistory 
+				+ ", Status=" + status + "]";
 	}
 }

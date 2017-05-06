@@ -12,18 +12,18 @@ import org.springframework.stereotype.Service;
 
 import com.sternik.samujarek.entities.Bus;
 import com.sternik.samujarek.entities.Status;
-import com.sternik.samujarek.repositories.MonetaAlreadyExistsException;
-import com.sternik.samujarek.repositories.MonetyRepository;
-import com.sternik.samujarek.repositories.NoSuchMonetaException;
+import com.sternik.samujarek.repositories.BusAlreadyExistsException;
+import com.sternik.samujarek.repositories.BusRepository;
+import com.sternik.samujarek.repositories.NoSuchBusException;
 
 
 @Service
 @Primary
-public class KlaserServiceJ8Impl implements KlaserService {
+public class DepotServiceJ8Impl implements DepotService {
 
     @Autowired
     @Qualifier("lista")
-    private MonetyRepository monety;
+    private BusRepository monety;
 
     @Override
     public List<Bus> findAll() {
@@ -40,7 +40,7 @@ public class KlaserServiceJ8Impl implements KlaserService {
     public Optional<Bus> findById(Long id) {
         try {
             return Optional.of(monety.readById(id));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.empty();
         }
     }
@@ -49,10 +49,10 @@ public class KlaserServiceJ8Impl implements KlaserService {
     public Optional<Bus> create(Bus bus) {
         try {
             return Optional.of(monety.create(bus));
-        } catch (MonetaAlreadyExistsException e) {
+        } catch (BusAlreadyExistsException e) {
             try {
                 return Optional.of(monety.readById(bus.getNumerKatalogowy()));
-            } catch (NoSuchMonetaException e1) {
+            } catch (NoSuchBusException e1) {
                 return Optional.empty();
             }
         }
@@ -63,7 +63,7 @@ public class KlaserServiceJ8Impl implements KlaserService {
     public Optional<Bus> edit(Bus bus) {
         try {
             return Optional.of(monety.update(bus));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.empty();
         }
     }
@@ -73,7 +73,7 @@ public class KlaserServiceJ8Impl implements KlaserService {
         try {
             monety.deleteById(id);
             return Optional.of(Boolean.TRUE);
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.of(Boolean.FALSE);
         }
     }

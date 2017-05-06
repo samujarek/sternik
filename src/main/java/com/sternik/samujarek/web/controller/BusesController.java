@@ -22,15 +22,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sternik.samujarek.entities.Bus;
 import com.sternik.samujarek.entities.Status;
-import com.sternik.samujarek.services.KlaserService;
+import com.sternik.samujarek.services.DepotService;
 import com.sternik.samujarek.services.NotificationService;
 
 @Controller
-public class MonetyController {
+public class BusesController {
 
     @Autowired
     // @Qualifier("spring")
-    private KlaserService klaserService;
+    private DepotService depotService;
 
     @Autowired
     private NotificationService notifyService;
@@ -43,7 +43,7 @@ public class MonetyController {
     @RequestMapping(value = "/monety/{id}", method = RequestMethod.GET)
     public String view(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Bus> result;
-        result = klaserService.findById(id);
+        result = depotService.findById(id);
         if (result.isPresent()) {
             Bus bus = result.get();
             model.addAttribute("moneta", bus);
@@ -59,7 +59,7 @@ public class MonetyController {
     @ResponseBody
     public ResponseEntity<Bus> viewAsJson(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Bus> result;
-        result = klaserService.findById(id);
+        result = depotService.findById(id);
         if (result.isPresent()) {
             Bus bus = result.get();
             return new ResponseEntity<Bus>(bus, HttpStatus.OK);
@@ -77,7 +77,7 @@ public class MonetyController {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "moneta";
         }
-        Optional<Bus> result = klaserService.edit(bus);
+        Optional<Bus> result = depotService.edit(bus);
         if (result.isPresent())
             notifyService.addInfoMessage("Zapis udany");
         else
@@ -92,7 +92,7 @@ public class MonetyController {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "moneta";
         }
-        klaserService.create(bus);
+        depotService.create(bus);
         model.clear();
         notifyService.addInfoMessage("Zapis nowej udany");
         return "redirect:/monety";
@@ -101,7 +101,7 @@ public class MonetyController {
     @RequestMapping(value = "/monety", params = { "remove" }, method = RequestMethod.POST)
     public String removeRow(final Bus bus, final BindingResult bindingResult, final HttpServletRequest req) {
         final Integer rowId = Integer.valueOf(req.getParameter("remove"));
-        Optional<Boolean> result = klaserService.deleteById(rowId.longValue());
+        Optional<Boolean> result = depotService.deleteById(rowId.longValue());
         return "redirect:/monety";
     }
 

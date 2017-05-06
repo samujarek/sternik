@@ -9,18 +9,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.sternik.samujarek.entities.Bus;
-import com.sternik.samujarek.repositories.MonetaAlreadyExistsException;
-import com.sternik.samujarek.repositories.MonetyRepository;
-import com.sternik.samujarek.repositories.NoSuchMonetaException;
+import com.sternik.samujarek.repositories.BusAlreadyExistsException;
+import com.sternik.samujarek.repositories.BusRepository;
+import com.sternik.samujarek.repositories.NoSuchBusException;
 
 
 @Service
 @Qualifier("tablica")
-public class KlaserServiceImpl implements KlaserService {
+public class DepotServiceImpl implements DepotService {
 
     @Autowired
     @Qualifier("tablica")
-    private MonetyRepository bazaDanych;
+    private BusRepository bazaDanych;
 
     @Override
     public List<Bus> findAll() {
@@ -36,7 +36,7 @@ public class KlaserServiceImpl implements KlaserService {
     public Optional<Bus> findById(Long id) {
         try {
             return Optional.of(bazaDanych.readById(id));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.empty();
         }
     }
@@ -45,7 +45,7 @@ public class KlaserServiceImpl implements KlaserService {
     public Optional<Bus> create(Bus bus) {
         try {
             return Optional.of(bazaDanych.create(bus));
-        } catch (MonetaAlreadyExistsException e) {
+        } catch (BusAlreadyExistsException e) {
             return Optional.empty();
         }
     }
@@ -54,7 +54,7 @@ public class KlaserServiceImpl implements KlaserService {
     public Optional<Bus> edit(Bus bus) {
         try {
             return Optional.of(bazaDanych.update(bus));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.empty();
         }
 
@@ -65,7 +65,7 @@ public class KlaserServiceImpl implements KlaserService {
         try {
             bazaDanych.deleteById(id);
             return Optional.of(Boolean.TRUE);
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             return Optional.of(Boolean.FALSE);
         }
     }

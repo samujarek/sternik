@@ -1,14 +1,12 @@
 package com.sternik.samujarek.repositories;
 
-public class NoSuchMonetaException extends Exception {
+public class NoSuchBusException extends Exception {
     private static final long serialVersionUID = -8555511053844242536L;
 
-    public NoSuchMonetaException(String string) {
+    public NoSuchBusException(String string) {
 		super(string);
 	}
 
-	public NoSuchMonetaException() {
+	public NoSuchBusException() {
 	}
-
-
 }

@@ -23,7 +23,6 @@ import com.sternik.samujarek.web.conversion.DateFormatter;
 @EnableWebMvc
 @ComponentScan({ "com.sternik.samujarek.web" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
-
 	private ApplicationContext applicationContext;
 
 	public void setApplicationContext(final ApplicationContext applicationContext) throws BeansException {
@@ -47,9 +46,6 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
 		registry.addResourceHandler("/js/**").addResourceLocations("/js/");
 	}
 
-	/*
-	 * Message externalization/internationalization
-	 */
 	@Bean
 	@Description("Spring Message Resolver")
 	public ResourceBundleMessageSource messageSource() {
@@ -76,46 +72,21 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
 
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
-		// SpringResourceTemplateResolver automatically integrates with Spring's
-		// own
-		// resource resolution infrastructure, which is highly recommended.
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 		templateResolver.setApplicationContext(this.applicationContext);
 		templateResolver.setPrefix("/WEB-INF/templates/");
 		templateResolver.setSuffix(".html");
-		// HTML is the default value, added here for the sake of clarity.
 		templateResolver.setTemplateMode(TemplateMode.HTML);
-		// Template cache is true by default. Set to false if you want
-		// templates to be automatically updated when modified.
 		templateResolver.setCharacterEncoding("UTF-8");
 		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 
-	// Z tymianka wersji 2
-	// @Bean
-	// @Description("Thymeleaf Template Resolver")
-	// public ServletContextTemplateResolver templateResolver() {
-	// ServletContextTemplateResolver templateResolver = new
-	// ServletContextTemplateResolver();
-	// templateResolver.setPrefix("/WEB-INF/views/");
-	// templateResolver.setSuffix(".html");
-	// templateResolver.setTemplateMode("HTML5");
-	// return templateResolver;
-	// }
-
 	@Bean
 	@Description("Thymeleaf Template Engine")
 	public SpringTemplateEngine templateEngine() {
-		// SpringTemplateEngine automatically applies SpringStandardDialect and
-		// enables Spring's own MessageSource message resolution mechanisms.
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver());
-		// Enabling the SpringEL compiler with Spring 4.2.4 or newer can
-		// speed up execution in most scenarios, but might be incompatible
-		// with specific cases when expressions in one template are reused
-		// across different data types, so this flag is "false" by default
-		// for safer backwards compatibility.
 		templateEngine.setEnableSpringELCompiler(true);
 		return templateEngine;
 	}

@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sternik.samujarek.entities.Bus;
 import com.sternik.samujarek.entities.Status;
-import com.sternik.samujarek.repositories.MonetaAlreadyExistsException;
-import com.sternik.samujarek.repositories.MonetyRepository;
-import com.sternik.samujarek.repositories.NoSuchMonetaException;
+import com.sternik.samujarek.repositories.BusAlreadyExistsException;
+import com.sternik.samujarek.repositories.BusRepository;
+import com.sternik.samujarek.repositories.NoSuchBusException;
 
 @Controller
 public class WprawkiController {
 
     @Autowired
     @Qualifier("tablica")
-    MonetyRepository baza;
+    BusRepository baza;
 
     @RequestMapping("/wprawki")
     public String index(ModelMap model) {
@@ -32,7 +32,7 @@ public class WprawkiController {
         model.addAttribute("data", new Date());
         try {
             model.addAttribute("moneta", baza.readById(0L));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             e.printStackTrace();
         }
         return "wprawki";
@@ -44,7 +44,7 @@ public class WprawkiController {
         model.addAttribute("data", new Date());
         try {
             model.addAttribute("moneta", baza.readById(0L));
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             e.printStackTrace();
         }
 
@@ -64,7 +64,7 @@ public class WprawkiController {
         try {
             m = baza.readById(id);
             return new ResponseEntity<Bus>(m, HttpStatus.OK);
-        } catch (NoSuchMonetaException e) {
+        } catch (NoSuchBusException e) {
             e.printStackTrace();
             m = new Bus();
             m.setNumerKatalogowy(id);
@@ -73,7 +73,7 @@ public class WprawkiController {
             m.setNominal(10L);
             try {
                 baza.create(m);
-            } catch (MonetaAlreadyExistsException e1) {
+            } catch (BusAlreadyExistsException e1) {
                 e1.printStackTrace();
             }
             return new ResponseEntity<Bus>(m, HttpStatus.CREATED);

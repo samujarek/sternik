@@ -11,14 +11,12 @@ import org.springframework.stereotype.Repository;
 import com.sternik.samujarek.entities.Bus;
 import com.sternik.samujarek.entities.Status;
 
-
 @Repository
 @Qualifier("tablica")
-public class ProstaBazaDanych implements MonetyRepository {
-
+public class SimpleDatabase implements BusRepository {
     private Bus[] baza;
 
-    public ProstaBazaDanych() {
+    public SimpleDatabase() {
         baza = new Bus[15];
         Bus m = new Bus();
         m.setNumerKatalogowy(0L);
@@ -40,18 +38,17 @@ public class ProstaBazaDanych implements MonetyRepository {
         m.setCenaNabycia(new BigDecimal("2.2"));
         m.setStatus(Status.DO_SPRZEDANIA);
         baza[2] = m;
-
     }
 
-    public ProstaBazaDanych(int rozmiarBazy) {
+    public SimpleDatabase(int rozmiarBazy) {
         baza = new Bus[rozmiarBazy];
     }
 
     @Override
-    public Bus create(Bus bus) throws MonetaAlreadyExistsException {
+    public Bus create(Bus bus) throws BusAlreadyExistsException {
         if (bus.getNumerKatalogowy() != null && baza[bus.getNumerKatalogowy().intValue()] != null) {
             if (bus.getNumerKatalogowy().equals(baza[bus.getNumerKatalogowy().intValue()].getNumerKatalogowy())) {
-                throw new MonetaAlreadyExistsException("Już jest moneta o takim numerze.");
+                throw new BusAlreadyExistsException("Już jest moneta o takim numerze.");
             }
         }
         for (int i = 0; i < baza.length; i++) {
@@ -65,25 +62,25 @@ public class ProstaBazaDanych implements MonetyRepository {
     }
 
     @Override
-    public void deleteById(Long id) throws NoSuchMonetaException {
+    public void deleteById(Long id) throws NoSuchBusException {
         int numerKatalogowy = id.intValue();
         if (!sprawdzPoprawnoscNumeruKatalogowego(numerKatalogowy)) {
-            throw new NoSuchMonetaException("Nie poprawny numer katologowy");
+            throw new NoSuchBusException("Nie poprawny numer katologowy");
         }
         // tu troche zle ;)
         baza[numerKatalogowy] = null;
     }
 
     @Override
-    public Bus update(Bus bus) throws NoSuchMonetaException {
+    public Bus update(Bus bus) throws NoSuchBusException {
         int numerKatalogowy = bus.getNumerKatalogowy().intValue();
         if (!sprawdzPoprawnoscNumeruKatalogowego(numerKatalogowy)) {
-            throw new NoSuchMonetaException("Nie poprawny numer katologowy");
+            throw new NoSuchBusException("Nie poprawny numer katologowy");
         }
 
         Bus m = baza[bus.getNumerKatalogowy().intValue()];
         if (m == null) {
-            throw new NoSuchMonetaException("Brak takiej monety.");
+            throw new NoSuchBusException("Brak takiej monety.");
         } else {
             baza[bus.getNumerKatalogowy().intValue()] = bus;
         }
@@ -91,10 +88,10 @@ public class ProstaBazaDanych implements MonetyRepository {
     }
 
     @Override
-    public Bus readById(Long numerKatalogowy) throws NoSuchMonetaException {
+    public Bus readById(Long numerKatalogowy) throws NoSuchBusException {
         int id = numerKatalogowy.intValue();
         if (!sprawdzPoprawnoscNumeruKatalogowego(id) || czyWolne(id)) {
-            throw new NoSuchMonetaException();
+            throw new NoSuchBusException();
         }
         return baza[id];
     }
@@ -128,5 +125,4 @@ public class ProstaBazaDanych implements MonetyRepository {
         }
         return true;
     }
-
 }

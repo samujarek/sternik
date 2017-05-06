@@ -10,6 +10,4 @@ import org.springframework.context.annotation.FilterType;
         @Filter(type = FilterType.REGEX, pattern = "com\\.sternik\\.samujarek\\.web\\..*") })
 
 public class SpringBusinessConfig {
-	
 }
-
