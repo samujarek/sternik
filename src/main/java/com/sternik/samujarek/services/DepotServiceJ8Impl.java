@@ -31,7 +31,7 @@ public class DepotServiceJ8Impl implements DepotService {
 
     @Override
     public List<Bus> findLatest3() {
-        return buses.findAll().stream().sorted((a, b) -> b.getpurchaseDate().compareTo(a.getpurchaseDate())).limit(5)
+        return buses.findAll().stream().sorted((a, b) -> b.getPurchaseDate().compareTo(a.getPurchaseDate())).limit(5)
                 .collect(Collectors.toList());
     }
 

@@ -43,10 +43,10 @@ public class BusRepositoryJ8Impl implements BusRepository {
     @Override
     public Bus create(Bus bus) {
         if (!buses.isEmpty()) {
-            bus.setidBus(
+            bus.setIdBus(
                     this.buses.stream().mapToLong(p -> p.getIdBus()).max().getAsLong() + 1);
         } else {
-            bus.setidBus(1L);
+            bus.setIdBus(1L);
         }
         this.buses.add(bus);
         return bus;

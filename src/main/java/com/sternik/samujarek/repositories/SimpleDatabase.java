@@ -19,9 +19,9 @@ public class SimpleDatabase implements BusRepository {
 	public SimpleDatabase() {
 		baza = new Bus[15];
 		Bus m = new Bus();
-		m.setidBus(0L);
+		m.setIdBus(0L);
 		m.setVehicleHistory("Brought from Croatia.");
-		m.setpassengersCapacity(108L);
+		m.setPassengersCapacity(108L);
 		m.setBrandVersionBus("260.04");
 		m.setBrandBus("Ikarus");
 		m.setPurchaseDate(new Date());
@@ -29,9 +29,9 @@ public class SimpleDatabase implements BusRepository {
 		m.setStatus(Status.GASOLINE);
 		baza[0] = m;
 		m = new Bus();
-		m.setidBus(2L);
+		m.setIdBus(2L);
 		m.setVehicleHistory("Original Jelcz.");
-		m.setpassengersCapacity(75L);
+		m.setPassengersCapacity(75L);
 		m.setBrandVersionBus("043");
 		m.setBrandBus("Jelcz");
 		m.setPurchaseDate(new Date());
@@ -55,7 +55,7 @@ public class SimpleDatabase implements BusRepository {
 		for (int i = 0; i < baza.length; i++) {
 			if (baza[i] == null) {
 				baza[i] = bus;
-				bus.setidBus((long) i);
+				bus.setIdBus((long) i);
 				return bus;
 			}
 		}

@@ -53,27 +53,27 @@ public class Bus {
 		return idBus;
 	}
 
-	public Long getpassengersCapacity() {
+	public Long getPassengersCapacity() {
 		return passengersCapacity;
 	}
 
-	public String getbrandBus() {
+	public String getBrandBus() {
 		return brandBus;
 	}
 
-	public String getbrandVersionBus() {
+	public String getBrandVersionBus() {
 		return brandVersionBus;
 	}
 
-	public BigDecimal getvehiclePrice() {
+	public BigDecimal getVehiclePrice() {
 		return vehiclePrice;
 	}
 
-	public Date getpurchaseDate() {
+	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
 
-	public String getvehicleHistory() {
+	public String getVehicleHistory() {
 		return vehicleHistory;
 	}
 
@@ -81,11 +81,11 @@ public class Bus {
 		return status;
 	}
 
-	public void setidBus(Long idBus) {
+	public void setIdBus(Long idBus) {
 		this.idBus = idBus;
 	}
 
-	public void setpassengersCapacity(Long passengersCapacity) {
+	public void setPassengersCapacity(Long passengersCapacity) {
 		this.passengersCapacity = passengersCapacity;
 	}
 
