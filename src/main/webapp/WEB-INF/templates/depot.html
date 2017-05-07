@@ -31,19 +31,19 @@
       </thead>
       <tbody>
         <tr th:each="coin : ${coinsAll}">
-          <form action="#" th:action="@{/buses}" th:object="${bus}" method="post">
-          <td th:text="${bus.idBus}">1</td>
-          <td th:text="${bus.passengersCapacity}">100</td>
-          <td th:text="${bus.brandBus}">Długi opis</td>
-          <td th:text="${bus.brandVersionBus}">zł</td>
-          <td th:text="${bus.vehiclePrice}">5.12</td>
-          <td th:text="${bus.purchaseDate}">2011/13/01</td>
-          <td th:text="${bus.vehicleHistory}">Polska</td>
-          <td th:text="#{${'bus.status.' + bus.status}}">Nowa</td>
+          <form action="#" th:action="@{/buses}" th:object="${buses}" method="post">
+          <td th:text="${buses.idBus}">1</td>
+          <td th:text="${buses.passengersCapacity}">100</td>
+          <td th:text="${buses.brandBus}">Długi opis</td>
+          <td th:text="${buses.brandVersionBus}">zł</td>
+          <td th:text="${buses.vehiclePrice}">5.12</td>
+          <td th:text="${buses.purchaseDate}">2011/13/01</td>
+          <td th:text="${buses.vehicleHistory}">Polska</td>
+          <td th:text="#{${'buses.status.' + buses.status}}">Nowa</td>
           <td>
-            <button type="submit" name="remove" th:value="${bus.idBus}" th:text="#{klaser.remove}">Delete</button>
+            <button type="submit" name="remove" th:value="${buses.idBus}" th:text="#{klaser.remove}">Delete</button>
             
-            <a href="bus.html" th:href="@{|/buses/${bus.idBus}|}" ><button type="button" th:text="#{klaser.edit}">Edit</button></a>              
+            <a href="bus.html" th:href="@{|/buses/${buses.idBus}|}" ><button type="button" th:text="#{klaser.edit}">Edit</button></a>              
           </td>
           </form>
         </tr>
