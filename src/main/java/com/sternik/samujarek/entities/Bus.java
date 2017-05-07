@@ -49,31 +49,31 @@ public class Bus {
 		return bus;
 	}
 
-	public Long getNumerKatalogowy() {
+	public Long getIdBus() {
 		return idBus;
 	}
 
-	public Long getNominal() {
+	public Long getpassengersCapacity() {
 		return passengersCapacity;
 	}
 
-	public String getOpis() {
+	public String getbrandBus() {
 		return brandBus;
 	}
 
-	public String getWaluta() {
+	public String getbrandVersionBus() {
 		return brandVersionBus;
 	}
 
-	public BigDecimal getCenaNabycia() {
+	public BigDecimal getvehiclePrice() {
 		return vehiclePrice;
 	}
 
-	public Date getDataNabycia() {
+	public Date getpurchaseDate() {
 		return purchaseDate;
 	}
 
-	public String getKrajPochodzenia() {
+	public String getvehicleHistory() {
 		return vehicleHistory;
 	}
 
@@ -81,32 +81,32 @@ public class Bus {
 		return status;
 	}
 
-	public void setNumerKatalogowy(Long numerKatalogowy) {
-		this.idBus = numerKatalogowy;
+	public void setidBus(Long idBus) {
+		this.idBus = idBus;
 	}
 
-	public void setNominal(Long nominal) {
-		this.passengersCapacity = nominal;
+	public void setpassengersCapacity(Long passengersCapacity) {
+		this.passengersCapacity = passengersCapacity;
 	}
 
-	public void setOpis(String opis) {
-		this.brandBus = opis;
+	public void setBrandBus(String brandBus) {
+		this.brandBus = brandBus;
 	}
 
-	public void setWaluta(String waluta) {
-		this.brandVersionBus = waluta;
+	public void setBrandVersionBus(String brandVersionBus) {
+		this.brandVersionBus = brandVersionBus;
 	}
 
-	public void setCenaNabycia(BigDecimal cenaNabycia) {
-		this.vehiclePrice = cenaNabycia;
+	public void setVehiclePrice(BigDecimal vehiclePrice) {
+		this.vehiclePrice = vehiclePrice;
 	}
 
-	public void setDataNabycia(Date dataNabycia) {
-		this.purchaseDate = dataNabycia;
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
 	}
-
-	public void setKrajPochodzenia(String krajPochodzenia) {
-		this.vehicleHistory = krajPochodzenia;
+	
+	public void setVehicleHistory(String vehicleHistory) {
+		this.vehicleHistory = vehicleHistory;
 	}
 
 	public void setStatus(Status status) {

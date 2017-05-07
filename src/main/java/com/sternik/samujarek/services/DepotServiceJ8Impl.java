@@ -31,7 +31,7 @@ public class DepotServiceJ8Impl implements DepotService {
 
     @Override
     public List<Bus> findLatest3() {
-        return buses.findAll().stream().sorted((a, b) -> b.getDataNabycia().compareTo(a.getDataNabycia())).limit(5)
+        return buses.findAll().stream().sorted((a, b) -> b.getpurchaseDate().compareTo(a.getpurchaseDate())).limit(5)
                 .collect(Collectors.toList());
     }
 
@@ -50,7 +50,7 @@ public class DepotServiceJ8Impl implements DepotService {
             return Optional.of(buses.create(bus));
         } catch (BusAlreadyExistsException e) {
             try {
-                return Optional.of(buses.readById(bus.getNumerKatalogowy()));
+                return Optional.of(buses.readById(bus.getIdBus()));
             } catch (NoSuchBusException e1) {
                 return Optional.empty();
             }
