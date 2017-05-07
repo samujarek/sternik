@@ -25,7 +25,7 @@
 	        <div>
 	          <label for="passengersCapacity"> <span th:text="#{depot.passengersCapacity}">Capacity</span>
 	          </label> <input type="text" th:field="*{passengersCapacity}" th:errorclass="fieldError" />
-	          <span th:if="${#fields.hasErrors('nominal')}" th:errors="*{passengersCapacity}">Incorrect capacity</span>
+	          <span th:if="${#fields.hasErrors('passengersCapacity')}" th:errors="*{passengersCapacity}">Incorrect capacity</span>
 	        </div>
 	        
 	        <div>
