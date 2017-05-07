@@ -30,7 +30,7 @@ public class DepotController {
 		return Arrays.asList(Status.ALL);
 	}
 
-	@ModelAttribute("coinsAll")
+	@ModelAttribute("busesAll")
 	public List<Bus> populateCoins() {
 		return this.depotService.findAll();
 	}
