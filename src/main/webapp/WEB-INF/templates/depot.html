@@ -39,11 +39,11 @@
           <td th:text="${{coin.cenaNabycia}}">5.12</td>
           <td th:text="${{coin.dataNabycia}}">2011/13/01</td>
           <td th:text="${coin.krajPochodzenia}">Polska</td>
-          <td th:text="#{${'depot.status.' + coin.status}}">Nowa</td>
+          <td th:text="#{${'coin.status.' + coin.status}}">Nowa</td>
           <td>
-            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{depot.remove}">Delete</button>
+            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Delete</button>
             
-            <a href="bus.html" th:href="@{|/buses/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{depot.edit}">Editt</button></a>              
+            <a href="bus.html" th:href="@{|/buses/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
           </td>
           </form>
         </tr>
