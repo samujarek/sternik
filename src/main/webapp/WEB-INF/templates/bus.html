@@ -1,74 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="layout ::site-head">
-		<title>Buses klaser</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" type="text/css" media="all" href="../../css/depot.css" th:href="@{/css/depot.css}" />
-	</head>
-	
-	<body>
-	  <header th:replace="layout :: site-header" />      
-	  <div>
-	    <form action="#" th:action="@{/buses}" th:object="${bus}" method="post">
-	      <fieldset>
-	
-	        <legend th:text="#{depot.bus.dane}">Starter Data</legend>
-	        <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
-	          <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
-	        </ul>
-	        
-	        <div>
-	          <label for="idBus"> <span th:text="#{depot.idBus}">ID</span>
-	          </label> <input type="text" th:field="*{idBus}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="passengersCapacity"> <span th:text="#{depot.passengersCapacity}">Capacity</span>
-	          </label> <input type="text" th:field="*{passengersCapacity}" th:errorclass="fieldError" />
-	          <span th:if="${#fields.hasErrors('passengersCapacity')}" th:errors="*{passengersCapacity}">Incorrect capacity</span>
-	        </div>
-	        
-	        <div>
-	          <label for="opis"> <span th:text="#{depot.brandBus}">Brand</span>
-	          </label> <input type="text" th:field="*{brandBus}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="waluta"> <span th:text="#{depot.brandVersionBus}">Brand version</span>
-	          </label> <input type="text" th:field="*{brandVersionBus}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="vehiclePrice"> <span th:text="#{depot.vehiclePrice}">Vehicle price</span>
-	          </label> <input type="text" th:field="*{vehiclePrice}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="purchaseDate"> <span th:text="#{depot.purchaseDate}">Purchase date</span> (<span
-	            th:text="#{date.format}">YYYY/MM/DD</span>)
-	          </label> <input type="text" th:field="*{purchaseDate}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="vehicleHistory"> <span th:text="#{depot.vehicleHistory}">Vehicle history</span>
-	          </label> <input type="text" th:field="*{vehicleHistory}" th:errorclass="fieldError" />
-	        </div>
-	        
-	        <div>
-	          <label for="status"> <span th:text="#{depot.status}">Status</span></label>
-	            <select th:field="*{status}" th:errorclass="fieldError">
-	              <option th:each="st : ${statusyAll}" th:value="${st}" th:text="#{${'depot.status.' + st}}">New</option>
-	            </select>          
-	        </div>
-	        
-	        <div class="submit">          
-	            <button th:if="*{idBus}" type="submit" name="save" th:value="*{idBus}" >Save</button>
-	            <button th:unless="*{idBus}" type="submit" name="create" >Save</button>            
-	            <a href="depot.html" th:href="@{/buses}" ><button type="button">Cancel</button></a>            
-	        </div>
-	      </fieldset>
-	    </form>
-	  </div>
-	  <footer th:replace="layout :: site-footer" />
-	</body>
+<head th:replace="layout ::site-head">
+<title>Buses klaser</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/depot.css" th:href="@{/css/depot.css}" />
+</head>
+
+<body>
+	<header th:replace="layout :: site-header" />
+	<div>
+		<form action="#" th:action="@{/buses}" th:object="${bus}"
+			method="post">
+			<fieldset>
+
+				<legend th:text="#{depot.bus.dane}">Starter Data</legend>
+				<ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input
+						is incorrect</li>
+				</ul>
+
+				<div>
+					<label for="idBus"> <span th:text="#{depot.idBus}">ID</span>
+					</label> <input type="text" th:field="*{idBus}" th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="passengersCapacity"> <span
+						th:text="#{depot.passengersCapacity}">Capacity</span>
+					</label> <input type="text" th:field="*{passengersCapacity}"
+						th:errorclass="fieldError" /> <span
+						th:if="${#fields.hasErrors('passengersCapacity')}"
+						th:errors="*{passengersCapacity}">Incorrect capacity</span>
+				</div>
+
+				<div>
+					<label for="opis"> <span th:text="#{depot.brandBus}">Brand</span>
+					</label> <input type="text" th:field="*{brandBus}"
+						th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="waluta"> <span
+						th:text="#{depot.brandVersionBus}">Brand version</span>
+					</label> <input type="text" th:field="*{brandVersionBus}"
+						th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="vehiclePrice"> <span
+						th:text="#{depot.vehiclePrice}">Vehicle price</span>
+					</label> <input type="text" th:field="*{vehiclePrice}"
+						th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="purchaseDate"> <span
+						th:text="#{depot.purchaseDate}">Purchase date</span> (<span
+						th:text="#{date.format}">YYYY/MM/DD</span>)
+					</label> <input type="text" th:field="*{purchaseDate}"
+						th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="vehicleHistory"> <span
+						th:text="#{depot.vehicleHistory}">Vehicle history</span>
+					</label> <input type="text" th:field="*{vehicleHistory}"
+						th:errorclass="fieldError" />
+				</div>
+
+				<div>
+					<label for="status"> <span th:text="#{depot.status}">Status</span></label>
+					<select th:field="*{status}" th:errorclass="fieldError">
+						<option th:each="st : ${statusyAll}" th:value="${st}"
+							th:text="#{'depot.status.' + ${st}}">New</option>
+					</select>
+				</div>
+
+				<div class="submit">
+					<button th:if="*{idBus}" type="submit" name="save"
+						th:value="*{idBus}">Save</button>
+					<button th:unless="*{idBus}" type="submit" name="create">Save</button>
+					<a href="depot.html" th:href="@{/buses}"><button type="button">Cancel</button></a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<footer th:replace="layout :: site-footer" />
+</body>
 </html>
