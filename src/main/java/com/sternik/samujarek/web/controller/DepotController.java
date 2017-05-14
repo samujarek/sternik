@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +20,7 @@ import com.sternik.samujarek.services.NotificationService;
 public class DepotController {
 
 	@Autowired
-	// @Qualifier("spring")
+	@Qualifier("spring-data")
 	private DepotService depotService;
 
 	@Autowired
