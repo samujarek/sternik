@@ -29,7 +29,7 @@ import com.sternik.samujarek.services.NotificationService;
 @Controller
 public class BusesController {
 	@Autowired
-	@Qualifier("spring-data")
+//	@Qualifier("spring-data")
 	private DepotService depotService;
 
 	@Autowired
@@ -71,7 +71,7 @@ public class BusesController {
 	}
 
 	@RequestMapping(value = "/buses", params = { "save" }, method = RequestMethod.POST)
-	public String savebus(@Valid Bus bus, BindingResult bindingResult, ModelMap model) {
+	public String savebus(Bus bus, BindingResult bindingResult, ModelMap model) {
 
 		if (bindingResult.hasErrors()) {
 			notifyService.addErrorMessage("Please fill the form correctly!");

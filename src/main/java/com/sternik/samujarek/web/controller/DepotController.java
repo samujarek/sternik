@@ -20,7 +20,7 @@ import com.sternik.samujarek.services.NotificationService;
 public class DepotController {
 
 	@Autowired
-	@Qualifier("spring-data")
+//	@Qualifier("spring-data")
 	private DepotService depotService;
 
 	@Autowired
