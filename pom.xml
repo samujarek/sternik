@@ -87,32 +87,32 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- JDBC -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1201-jdbc4</version>
 		</dependency>
-		
+
 		<!-- -->
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>jsr250-api</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<!-- Spring framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -130,11 +130,17 @@
 			<artifactId>thymeleaf</artifactId>
 			<version>3.0.3.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
 			<version>3.0.3.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
 		</dependency>
 	</dependencies>
 </project>
