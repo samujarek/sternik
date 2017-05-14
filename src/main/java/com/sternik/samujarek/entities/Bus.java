@@ -3,40 +3,45 @@ package com.sternik.samujarek.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-//@Entity
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
 @XmlRootElement
 public class Bus {
+	@NotNull
+	@Id
+	private Long idBus;
 
-//  @NotNull
-//  @Id
-    private Long idBus;
-	
-//	@NotNull
-//	@Size(min=2, max=30")
+	@NotNull
+	@Size(min = 2, max = 30)
 	private Long passengersCapacity;
-	
-//	@Size(min=2, max=30")
+
+	@Size(min = 2, max = 30)
 	private String brandBus;
-	
-//	@NotEmpty
+
+	@NotEmpty
 	private String brandVersionBus;
-	
-//	@NotNull
+
+	@NotNull
 	private BigDecimal vehiclePrice;
-	
-//	@NotNull
+
+	@NotNull
 	private Date purchaseDate;
-	
-//	@NotEmpty
+
+	@NotEmpty
 	private String vehicleHistory;
-	
-//	@NotNull
+
+	@NotNull
 	private Status status;
 
-	public static Bus produceBus(Long idBus, String vehicleHistory, Long passengersCapacity, String brandVersionBus, String brandBus,
-		Date productionDate, BigDecimal vehiclePrice, Status status) {
+	public static Bus produceBus(Long idBus, String vehicleHistory, Long passengersCapacity, String brandVersionBus,
+			String brandBus, Date productionDate, BigDecimal vehiclePrice, Status status) {
 		Bus bus = new Bus();
 		bus.idBus = idBus;
 		bus.vehicleHistory = vehicleHistory;
@@ -104,7 +109,7 @@ public class Bus {
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
-	
+
 	public void setVehicleHistory(String vehicleHistory) {
 		this.vehicleHistory = vehicleHistory;
 	}
@@ -136,9 +141,9 @@ public class Bus {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
+
 		Bus other = (Bus) obj;
-		
+
 		if (brandBus == null) {
 			if (other.brandBus != null)
 				return false;
@@ -184,9 +189,9 @@ public class Bus {
 
 	@Override
 	public String toString() {
-		return "Bus [Bus ID = " + idBus + ", Passangers capacity = " + passengersCapacity + ", Bus brand = " 
-				+ brandBus + ", Bus brand version = " + brandVersionBus + ", Vehicle price = " + vehiclePrice
-				+ ", Production date = " + purchaseDate + ", Vehicle history = " + vehicleHistory 
-				+ ", Status=" + status + "]";
+		return "Bus [Bus ID = " + idBus + ", Passangers capacity = " + passengersCapacity + ", Bus brand = " + brandBus
+				+ ", Bus brand version = " + brandVersionBus + ", Vehicle price = " + vehiclePrice
+				+ ", Production date = " + purchaseDate + ", Vehicle history = " + vehicleHistory + ", Status=" + status
+				+ "]";
 	}
 }
