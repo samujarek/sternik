@@ -21,7 +21,7 @@ public class DepotServiceJpaImpl implements DepotService {
     @Override
     public List<Bus> findAll() {
         List<Bus> l = new ArrayList<>();
-        for (bus item : db.findAll()) {
+        for (Bus item : db.findAll()) {
             l.add(item);
         }
         return l;
